@@ -1,7 +1,7 @@
 class LogsController < ApplicationController
 
   def index
-    @logs = Log.all
+    @logs = Log.all.page(params[:page]).per(5)
   end
 
   def new
