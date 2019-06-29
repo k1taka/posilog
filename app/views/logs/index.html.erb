@@ -1,4 +1,3 @@
-
 <% @logs.each do |log|%>
   <div class="card w-75">
     <div class="card-body">
@@ -6,8 +5,14 @@
         <%= log.title %>
       </h5>
       <p class="card-text">
+        <%= log.good%>
+      </p>      
+      <p class="card-text">
         <%= log.chance%>
       </p>
+        <p class="card-text">
+          <%= image_tag log.image.url if log.image?%>
+        </p>
       <a href="#" class="btn btn-primary">Button</a>
     </div>
   </div>
