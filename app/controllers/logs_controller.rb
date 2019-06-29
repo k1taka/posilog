@@ -1,7 +1,7 @@
 class LogsController < ApplicationController
 
   def index
-    @logs = Log.all.page(params[:page]).per(5)
+    @logs = Log.all.page(params[:page]).per(5).order("created_at DESC")
   end
 
   def new
