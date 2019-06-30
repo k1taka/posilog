@@ -11,9 +11,18 @@ class LogsController < ApplicationController
   end
 
   def create
-    Log.create(log_params)
+    @log=Log.create(log_params)
     redirect_to root_path
+    @log.user_id = current_user.id
+    if @log.save
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
+
+
+  
 
   def destroy
     log = Log.find(params[:id])
@@ -33,6 +42,8 @@ class LogsController < ApplicationController
 
   def show
     @log = Log.find(params[:id])
+    @ucomments = @log.ucomments.includes(:user)
+    @ucomment = Ucomment.new
   end
 
   def log_params
