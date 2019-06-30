@@ -1,0 +1,26 @@
+<div>
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @logs.each do |log|%>
+    <div class="card w-75">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= log.title %>
+        </h5>
+        <h6 class="card-title">
+          <%= log.user_id %>
+        </h6>
+        <p class="card-text">
+          <%= log.good%>
+        </p>      
+        <p class="card-text">
+          <%= log.chance%>
+        </p>
+          <p class="card-text">
+            <%= image_tag log.image.url if log.image?%>
+          </p>
+        <a href="#" class="btn btn-primary">Button</a>
+      </div>
+    </div>
+  <% end %>
+  <%= paginate(@logs)%>
+</div>

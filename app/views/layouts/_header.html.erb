@@ -15,6 +15,9 @@
         <li class="nav-item">
           <%= link_to "投稿機能",new_log_path,class:"nav-link"%>
         </li>
+        <li class="nav-item">
+          <%= link_to "マイページ",user_path(current_user),class:"nav-link"%>
+        </li>
 
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
