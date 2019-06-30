@@ -1,0 +1,26 @@
+<div>
+    <div class="card w-75">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= @log.title %>
+        </h5>
+        <h6 class="card-title">
+          <%= @log.user.nickname %>
+        </h6>
+        <p class="card-text">
+          <%= @log.good%>
+        </p>      
+        <p class="card-text">
+          <%= @log.chance%>
+        </p>
+          <p class="card-text">
+            <%= image_tag @log.image.url if @log.image?%>
+          </p>
+        <% if user_signed_in? && current_user.id == @log.user_id %>
+          <%=link_to "削除",log_path(@log.id),method: :delete,class: "btn btn-primary" %>
+          <%=link_to "編集",edit_log_path(@log.id),class: "btn btn-primary" %>
+        <% end %>
+
+      </div>
+    </div>
+</div>

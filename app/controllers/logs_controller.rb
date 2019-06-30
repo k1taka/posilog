@@ -1,6 +1,6 @@
 class LogsController < ApplicationController
 
-  before_action :move_to_index,except: :index
+  before_action :move_to_index,except: [:index,:show]
 
   def index
     @logs = Log.includes(:user).page(params[:page]).per(5).order("created_at DESC")
@@ -19,7 +19,6 @@ class LogsController < ApplicationController
     log = Log.find(params[:id])
     log.destroy
     redirect_to root_path
-
   end
 
   def edit
@@ -30,6 +29,10 @@ class LogsController < ApplicationController
     log = Log.find(params[:id])
     log.update(log_params) 
     redirect_to root_path
+  end
+
+  def show
+    @log = Log.find(params[:id])
   end
 
   def log_params
