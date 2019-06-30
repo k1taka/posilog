@@ -1,5 +1,7 @@
 class LogsController < ApplicationController
 
+  before_action :move_to_index,except: :index
+
   def index
     @logs = Log.all.page(params[:page]).per(5).order("created_at DESC")
   end
@@ -15,7 +17,11 @@ class LogsController < ApplicationController
   end
 
   def log_params
-    params.require(:log).permit(:title,:good,:chance,:kind,:image)
+    params.require(:log).permit(:title,:good,:chance,:kind,:image).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 
 end
