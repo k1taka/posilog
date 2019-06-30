@@ -23,11 +23,13 @@ class LogsController < ApplicationController
   end
 
   def edit
-
+    @log = Log.find(params[:id])
   end
 
   def update
-
+    log = Log.find(params[:id])
+    log.update(log_params) 
+    redirect_to root_path
   end
 
   def log_params

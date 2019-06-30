@@ -20,7 +20,7 @@
           </p>
         <a href="#" class="btn btn-primary">Button</a>
         <%=link_to "削除",log_path(log.id),method: :delete,class: "btn btn-primary" %>
-        <%=link_to "編集",method: :delete,class: "btn btn-primary" %>
+        <%=link_to "編集",edit_log_path(log.id),class: "btn btn-primary" %>
       </div>
     </div>
   <% end %>
