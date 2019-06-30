@@ -3,7 +3,7 @@ class LogsController < ApplicationController
   before_action :move_to_index,except: :index
 
   def index
-    @logs = Log.all.page(params[:page]).per(5).order("created_at DESC")
+    @logs = Log.includes(:user).page(params[:page]).per(5).order("created_at DESC")
   end
 
   def new
