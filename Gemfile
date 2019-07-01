@@ -71,3 +71,5 @@ gem 'fog-aws'
 gem 'bootstrap', '~> 4.1.1'
 
 gem 'google-cloud-language'
+
+gem "jquery-rails"
