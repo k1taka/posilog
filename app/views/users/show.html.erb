@@ -1,5 +1,5 @@
-
 <div>
+  <p><%= @nickname %>さんの投稿一覧</p>
   <% @logs.each do |log|%>
     <div class="card w-75">
       <div class="card-body">
@@ -18,11 +18,7 @@
           <p class="card-text">
             <%= image_tag log.image.url if log.image?%>
           </p>
-        <%=link_to "詳細",log_path(log.id),class: "btn btn-primary" %>
-        <% if user_signed_in? && current_user.id == log.user_id %>
-          <%=link_to "削除",log_path(log.id),method: :delete,class: "btn btn-primary" %>
-          <%=link_to "編集",edit_log_path(log.id),class: "btn btn-primary" %>
-        <% end %>
+        <a href="#" class="btn btn-primary">Button</a>
       </div>
     </div>
   <% end %>
