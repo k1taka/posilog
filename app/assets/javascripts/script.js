@@ -6,6 +6,7 @@
 
 $(function(){
   $('#exampleFormControlTextarea2').on('change', function(){
-    console.log("送信ボタンが押されました");
+    var chance_comment = $(this).prop('value');
+    console.log(chance_comment);
   });
 });
