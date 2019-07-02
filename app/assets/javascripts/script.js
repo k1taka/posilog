@@ -21,10 +21,10 @@ $(function(){
       var polarity = res.documentSentiment.polarity
       var magnitude = res.documentSentiment.magnitude
 
-      console.log(res.documentSentiment.magnitude);
-      console.log(res.documentSentiment.polarity);
+      console.log(`polarity:${res.documentSentiment.polarity}`);
+      console.log(`magnitude:${res.documentSentiment.magnitude}`);
 
-      if (polarity >0.3 && magnitude >0.3) {
+      if (polarity >0.3) {
           alert("ok");
       }
       else{
