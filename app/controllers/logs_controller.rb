@@ -12,13 +12,9 @@ class LogsController < ApplicationController
 
   def create
     @log=Log.create(log_params)
-    redirect_to root_path
     @log.user_id = current_user.id
-    if @log.save
-      redirect_back(fallback_location: root_path)
-    else
-      redirect_back(fallback_location: root_path)
-    end
+    redirect_to root_path
+
   end
 
   def destroy
