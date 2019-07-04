@@ -73,3 +73,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'google-cloud-language'
 
 gem "jquery-rails"
+
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
+gem 'bootstrap-sass'
