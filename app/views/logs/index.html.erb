@@ -1,30 +1,69 @@
 
 <div>
-  <% @logs.each do |log|%>
-    <div class="card w-75">
-      <div class="card-body">
-        <h5 class="card-title">
-          <%= log.title %>
-        </h5>
-        <h6 class="card-title">
-          <%= log.user.nickname %>
-        </h6>
-        <p class="card-text">
-          <%= log.good%>
-        </p>      
-        <p class="card-text">
-          <%= log.chance%>
-        </p>
-          <p class="card-text">
-            <%= image_tag log.image.url if log.image?%>
-          </p>
-        <%=link_to "詳細",log_path(log.id),class: "btn btn-primary" %>
-        <% if user_signed_in? && current_user.id == log.user_id %>
-          <%=link_to "削除",log_path(log.id),method: :delete,class: "btn btn-primary" %>
-          <%=link_to "編集",edit_log_path(log.id),class: "btn btn-primary" %>
-        <% end %>
-      </div>
+<div class="top-content">
+    <div class="himawari">
     </div>
+</div>
+
+  <% @logs.each do |log|%>
+    <div class="card">
+      <div class="card-body">
+        <div class="card-header bg-warning">
+          <%= log.title %>
+        </div>
+        <div class="card-header mb-3 text-warning">
+          <%= log.user.nickname %>さんの投稿です。
+        </div>
+        
+        <div class="container mb-3">
+          <div class="row">
+            <div class="col-sm-4">
+              <p class="card-text">
+                <%= image_tag log.image.url if log.image?%>
+              </p>
+            </div>
+            <div class="col-sm-4">
+              <h4 class="card-title">GoodPoint</h4>
+              <p class="card-text">
+                <%= log.good%>
+              </p>
+            </div>
+            <div class="col-sm-4">
+              <h4 class="card-title">ChancePoint</h4>
+              <p class="card-text">
+                <%= log.chance%>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        
+        
+      <div class="container">
+
+          <div class="row col-md-offset-2"> 
+            <div class="col-sm-6">
+            <%= image_tag 'himawari.jpg', class: 'rounded-left square' ,alt:"Slightly rounded image"%>
+            <%= image_tag 'himawari.jpg', class: 'rounded-center square' ,alt:"Slightly rounded image"%>
+            <%= image_tag 'himawari.jpg', class: 'rounded-right square' ,alt:"Slightly rounded image"%>
+          </div>
+          <div class="row col-md-offset-2 mt-5 col-sm-6"> 
+            <div>
+              <%=link_to "詳細",log_path(log.id),class: "btn btn-warning text-white" %>
+              <% if user_signed_in? && current_user.id == log.user_id %>
+                <%=link_to "削除",log_path(log.id),method: :delete,class: "btn btn-warning  text-white" %>
+                <%=link_to "編集",edit_log_path(log.id),class: "btn btn-warning  text-white" %>
+              <% end %>
+            </div>           
+          </div> 
+        </div>
+      </div> 
+
+    </div>
+  </div>
+
   <% end %>
-  <%= paginate(@logs)%>
+      <%= paginate(@logs)%>
+
+
 </div>
