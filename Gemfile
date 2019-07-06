@@ -77,3 +77,5 @@ gem "jquery-rails"
 gem 'kaminari-bootstrap', '~> 3.0.1'
 
 gem 'bootstrap-sass'
+
+gem 'dotenv-rails'

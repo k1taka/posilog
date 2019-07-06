@@ -29,3 +29,6 @@
 public/uploads/*
 
 app/assets/javascripts/script.js
+
+/.env
+
