@@ -1,16 +1,27 @@
 <div>
-    <div class="card w-75">
+    <div class="card">
       <div class="card-body">
-        <h5 class="card-title">
+      <div class="card-body">
+        <div class="card-header bg-warning">
           <%= @log.title %>
-        </h5>
-        <h6 class="card-title">
-          <%= @log.user.nickname %>
-        </h6>
-  
+        </div>
+        <div class="card-header mb-3 text-warning">
+
+          <%= @log.user.nickname %>さんの投稿です。
+        </div>  
+        <h4 class="card-title">
+          <span data-toggle="tooltip" title="ご利用をされたサービスの良かった点です。">
+            GoodPoint
+          </span>
+        </h4>
         <p class="card-text">
           <%= @log.good%>
         </p>      
+        <h4 class="card-title">
+          <span data-toggle="tooltip" title="ご利用をされたサービスをもっと良くするための提案です。">
+            ChancePoint
+          </span>
+        </h4>
         <p class="card-text">
           <%= @log.chance%>
         </p>
@@ -18,17 +29,16 @@
             <%= image_tag @log.image.url if @log.image?%>
           </p>
         <% if user_signed_in? && current_user.id == @log.user_id %>
-          <%=link_to "削除",log_path(@log.id),method: :delete,class: "btn btn-primary" %>
-          <%=link_to "編集",edit_log_path(@log.id),class: "btn btn-primary" %>
+          <%=link_to "削除",log_path(@log.id),method: :delete,class: "btn btn-warning mb-3" %>
+          <%=link_to "編集",edit_log_path(@log.id),class: "btn btn-warning mb-3" %>
         <% end %>
 
         <%= form_for [@log, @ucomment] do |f| %>
-          <%= f.text_field :text %>
+          <%= f.text_area :text,rows:"4",class:"mb-3"%>
           <br>
-          <%= f.submit 'コメント' %>
+          <%= f.submit 'コメント',class: "btn btn-warning mb-3" %>
         <% end %>
 
-        <h5>コメント一覧</h5>
         <% @ucomments.each do |c| %>
           <div>
             <%= c.text %>
