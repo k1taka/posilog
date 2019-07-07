@@ -62,8 +62,6 @@ gem 'devise'
 
 gem 'mini_magick'
 
-gem 'pry-rails'
-
 gem 'carrierwave'
 
 gem 'fog-aws'
