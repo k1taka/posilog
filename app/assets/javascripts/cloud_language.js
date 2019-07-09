@@ -1,9 +1,7 @@
 $(function(){
-
   function buildHTML(message){
     var html = `<div class="message" data-id= ${message.id}>
                   <div class="message__uper-info">
-
                     <p class="message__text__content">
                       ${content}
                     </p>
@@ -39,16 +37,12 @@ $(function(){
 
       if (polarity >0.3) {
           alert("OK");
-          // $(".btn-chance").text(`positive score:${res.documentSentiment.magnitude*100}`);
-          // $(this).prev().text(`positive score:${res.documentSentiment.polarity}`);
           $(ps).text(`positive score:${res.documentSentiment.polarity}`);
         }
       else{
           alert("ポジティブな投稿にしましょう");
           $(ps).text(`positive score:${res.documentSentiment.polarity}`);
-
       }
-
     }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
      alert("error");
     })
