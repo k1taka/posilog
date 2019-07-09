@@ -1,7 +1,7 @@
 <div>
   <%= render 'top-content' %>
   <% @logs.each do |log|%>
-    <%= render @logs %>
+    <%= render log %>
   <% end %>
     <%= paginate(@logs)%>
 </div>
