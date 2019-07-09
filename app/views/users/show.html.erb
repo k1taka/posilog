@@ -3,7 +3,7 @@
     <p><%= @nickname %>さんの投稿一覧</p>
   </div>
   <% @logs.each do |log|%>
-      <%= render @logs %>
+      <%= render partial: 'logs/log', locals: { log: log } %>
   <% end %>
     <%= paginate(@logs)%>
 </div>
