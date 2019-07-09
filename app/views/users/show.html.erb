@@ -3,63 +3,8 @@
     <p><%= @nickname %>さんの投稿一覧</p>
   </div>
   <% @logs.each do |log|%>
-    <div class="card">
-      <div class="card-body">
-        <div class="card-header bg-warning mb-3 ">
-          <%= log.title %>
-        </div>
-        <div class="container mb-3">
-          <div class="row">
-            <div class="col-sm-4">
-              <p class="card-text">
-                <%= image_tag log.image.url if log.image?%>
-              </p>
-            </div>
-            <div class="col-sm-4">
-              <h4 class="card-title">
-              <span data-toggle="tooltip" title="ご利用をされたサービスの良かった点です。">
-              GoodPoint
-              </span>
-              </h4>
-              <p class="card-text">
-                <%= log.good%>
-              </p>
-            </div>
-            <div class="col-sm-4">
-              <h4 class="card-title">
-                <span data-toggle="tooltip" title="ご利用をされたサービスをもっと良くするための提案です。">
-                  ChancePoint
-                </span>
-              </h4>
-              <p class="card-text">
-                <%= log.chance%>
-              </p>
-            </div>
-          </div>
-        </div>
-
-      <div class="container">
-          <div class="row col-md-offset-2"> 
-            <div class="col-sm-6">
-            <%= image_tag 'himawari.jpg', class: 'rounded-left square' ,alt:"Slightly rounded image"%>
-            <%= image_tag 'shirotsumekusa.jpg', class: 'rounded-center square' ,alt:"Slightly rounded image"%>
-            <%= image_tag 'margalet.jpg', class: 'rounded-right square' ,alt:"Slightly rounded image"%>
-          </div>
-          <div class="row col-md-offset-2 mt-5 col-sm-6"> 
-            <div>
-              <%=link_to "詳細",log_path(log.id),class: "btn btn-warning text-white" %>
-              <% if user_signed_in? && current_user.id == log.user_id %>
-                <%=link_to "削除",log_path(log.id),method: :delete,class: "btn btn-warning  text-white" %>
-                <%=link_to "編集",edit_log_path(log.id),class: "btn btn-warning  text-white" %>
-              <% end %>
-            </div>           
-          </div> 
-        </div>
-      </div> 
-
-      </div>
-    </div>
+      <%= render @logs %>
   <% end %>
-  <%= paginate(@logs)%>
+    <%= paginate(@logs)%>
 </div>
 
