@@ -1,0 +1,15 @@
+.pagination{
+  li{
+    a{
+      border: none;     /*枠線をなくす*/
+      color: white;   /*文字の色を変える*/
+      background-color:#ffc107; 
+      &:hover{
+        border-radius: 15px;    /*角を丸くする*/
+      }
+    }
+  }
+}
+.page-item.active .page-link{
+  background-color:#ffc107; 
+}

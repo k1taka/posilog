@@ -62,8 +62,6 @@ gem 'devise'
 
 gem 'mini_magick'
 
-gem 'pry-rails'
-
 gem 'carrierwave'
 
 gem 'fog-aws'
@@ -73,3 +71,9 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'google-cloud-language'
 
 gem "jquery-rails"
+
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
+gem 'bootstrap-sass'
+
+gem 'dotenv-rails'

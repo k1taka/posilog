@@ -27,3 +27,8 @@
 /config/master.key
 
 public/uploads/*
+
+app/assets/javascripts/script.js
+
+/.env
+

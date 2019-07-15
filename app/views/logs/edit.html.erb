@@ -1,30 +1,30 @@
 <%= form_for(@log) do |f| %>
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">タイトル</label>
+<form >
+  <div class="form-group  ml-3 mr-3 mt-3">
+    <label for="exampleFormControlInput1">Title</label>
     <%= f.text_field :title,class:"form-control",id:"exampleFormControlInput1",placeholder:"タイトルを入力してください",value:"#{@log.title}"%>
   </div>
 
-  <div class="form-group">
+  <div class="form-group  ml-3 mr-3">
     <label for="exampleFormControlInput1">投稿内容のタイプは？</label>
     <%= f.text_field :kind,class:"form-control",id:"exampleFormControlInput1",placeholder:"投稿内容のタイプを入力してください ex)提案 ",value:"#{@log.kind}"%>
   </div>
 
-  <div class="form-group">
+  <div class="form-group  ml-3 mr-3">
     <label for="exampleFormControlTextarea1">GoodPoint</label>
-    <%= f.text_area :good,class:"form-control", id:"exampleFormControlTextarea1",rows:"3" ,value:"#{@log.good}"%>
+    <%= f.text_area :good,class:"form-control form-control-posinega", id:"exampleFormControlTextarea1",rows:"3" ,value:"#{@log.good}"%>
   </div>
     
-  <div class="form-group">
+  <div class="form-group  ml-3 mr-3">
     <label for="exampleFormControlTextarea1">ChancePoint</label>
-    <%= f.text_area :chance,class:"form-control", id:"exampleFormControlTextarea2",rows:"3" ,value:"#{@log.chance}"%>
+    <%= f.text_area :chance,class:"form-control  form-control-posinega", id:"exampleFormControlTextarea2",rows:"3" ,value:"#{@log.chance}"%>
   </div>
 
-  <div class="form-group">
-    <label for="exampleFormControlFile1">写真</label>
+  <div class="form-group  ml-3 mr-3">
+    <label for="exampleFormControlFile1">Picture</label>
     <%= f.file_field :image,class:"form-control-file",id:"exampleFormControlFile1",value:"#{@log.image}" %>
   </div>
 
-    <button type="submit" class="btn btn-primary" method="patch">Submit</button>
+    <button type="submit" class="btn btn-warning  text-white  ml-3 mr-3" method="patch">Submit</button>
 </form>
 <%end%>

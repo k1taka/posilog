@@ -1,40 +1,16 @@
 <div>
-    <div class="card w-75">
-      <div class="card-body">
-        <h5 class="card-title">
-          <%= @log.title %>
-        </h5>
-        <h6 class="card-title">
-          <%= @log.user.nickname %>
-        </h6>
-  
-        <p class="card-text">
-          <%= @log.good%>
-        </p>      
-        <p class="card-text">
-          <%= @log.chance%>
-        </p>
-          <p class="card-text">
-            <%= image_tag @log.image.url if @log.image?%>
-          </p>
-        <% if user_signed_in? && current_user.id == @log.user_id %>
-          <%=link_to "削除",log_path(@log.id),method: :delete,class: "btn btn-primary" %>
-          <%=link_to "編集",edit_log_path(@log.id),class: "btn btn-primary" %>
-        <% end %>
-
-        <%= form_for [@log, @ucomment] do |f| %>
-          <%= f.text_field :text %>
-          <br>
-          <%= f.submit 'コメント' %>
-        <% end %>
-
-        <h5>コメント一覧</h5>
-        <% @ucomments.each do |c| %>
-          <div>
-            <%= c.text %>
-            <hr>
-          </div>
-        <% end %>
-
+  <%= render partial: 'log', locals: { log: @log } %>
+    <%= form_for [@log, @ucomment] do |f| %>
+      <%= f.text_area :text,rows:"4",class:"form-control m-3"%>
+        <br>
+      <%= f.submit 'コメント',class: "btn btn-warning text-white ml-3 mb-3" %>
+    <% end %>
+    <% @ucomments.each do |c| %>
+      <div class="card">
+        <div class="card-body ml-3">
+        <%= c.text %>
+        </div>
+      </div>
+    <% end %>
     </div> 
 </div>
