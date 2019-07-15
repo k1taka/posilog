@@ -86,3 +86,5 @@ gem "jquery-rails"
 gem 'kaminari-bootstrap', '~> 3.0.1'
 
 gem 'dotenv-rails'
+
+gem 'gon'

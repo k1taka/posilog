@@ -13,6 +13,7 @@ $(function(){
   $('.form-control-posinega').on('change', function(){
     var chance_comment = $(this).prop('value');
     var ps = $(this).prev();
+    API_KEY = gon.API_KEY;
 
     var requestUrl ='https://language.googleapis.com/v1beta1/documents:analyzeSentiment?key=' + API_KEY;
 
