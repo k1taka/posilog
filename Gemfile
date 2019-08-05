@@ -88,3 +88,5 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'dotenv-rails'
 
 gem 'gon'
+
+gem "binding_of_caller"
