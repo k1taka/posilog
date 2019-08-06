@@ -24,7 +24,8 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
-append :linked_files, 'config/database.yml', 'config/master.key'
+# 本番環境のマスターキーの指定
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 # デプロイ処理が終わった後、Unicornを再起動するための記述
 after 'deploy:publishing', 'deploy:restart'
