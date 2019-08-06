@@ -8,7 +8,7 @@ class LogsController < ApplicationController
 
   def new
     @log = Log.new
-    gon.API_KEY =  Rails.application.credentials.gcp[:API_KEY]
+    gon.API_KEY = Rails.application.credentials.gcp[:API_KEY]
   end
 
   def create
