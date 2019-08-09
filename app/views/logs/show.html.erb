@@ -1,11 +1,11 @@
 <div>
   <%= render partial: 'log', locals: { log: @log } %>
-    <%= form_for [@log, @ucomment] do |f| %>
+    <%= form_for [@log, @comment] do |f| %>
       <%= f.text_area :text,rows:"4",class:"form-control m-3"%>
         <br>
       <%= f.submit 'コメント',class: "btn btn-warning text-white ml-3 mb-3" %>
     <% end %>
-    <% @ucomments.each do |c| %>
+    <% @comments.each do |c| %>
       <div class="card">
         <div class="card-body ml-3">
         <%= c.text %>

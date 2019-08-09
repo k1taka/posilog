@@ -36,8 +36,8 @@ class LogsController < ApplicationController
 
   def show
     @log = Log.find(params[:id])
-    @ucomments = @log.ucomments.includes(:user)
-    @ucomment = Ucomment.new
+    @comments = @log.comments.includes(:user)
+    @comment = Comment.new
   end
 
   def log_params
