@@ -1,4 +1,4 @@
-class RenameListCommentsToComments < ActiveRecord::Migration[5.2]
+class RenameCommentsToComments < ActiveRecord::Migration[5.2]
   def change
     rename_table :ucomments, :comments
   end
