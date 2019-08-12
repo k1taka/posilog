@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: posilog_production
-  username: posilog
-  password: <%= ENV['POSILOG_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock

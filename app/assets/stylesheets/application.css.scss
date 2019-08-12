@@ -13,4 +13,9 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap"; 
+
+
+ @import "bootstrap";
+ @import "modules/index";
+ @import "modules/pagination";
+ @import "modules/top_content";
