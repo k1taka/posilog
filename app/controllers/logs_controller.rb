@@ -15,7 +15,6 @@ class LogsController < ApplicationController
     @log=Log.create(log_params)
     @log.user_id = current_user.id
     redirect_to root_path
-
   end
 
   def destroy
@@ -41,7 +40,7 @@ class LogsController < ApplicationController
   end
 
   def log_params
-    params.require(:log).permit(:title,:good,:chance,:kind,:image).merge(user_id: current_user.id)
+    params.require(:log).permit(:title,:good,:chance,:kind,:image,:store_id).merge(user_id: current_user.id)
   end
 
   def move_to_index
