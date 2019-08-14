@@ -6,8 +6,17 @@
   </div>
   <div class="form-group  ml-3 mr-3">
     <label for="exampleFormControlInput1">サービス名</label>
-    <%= f.number_field :store_id,class:"form-control",id:"exampleFormControlInput2",placeholder:"投稿するサービス名を入力してください"%>
+    <input class="form-control" id="exampleFormControlInput2" placeholder="投稿するサービス名を入力してください">
+    <ul id = "result">
+    </ul>
   </div>
+
+  <div class="hidden_store">
+    <label></label>
+    <%= f.hidden_field :store_id,id:"exampleFormControlInput4"%>
+  </div>
+
+
   <div class="form-group  ml-3 mr-3">
     <label for="exampleFormControlInput1">提案の種類</label>
     <%= f.number_field :kind,class:"form-control",id:"exampleFormControlInput3",placeholder:"投稿する提案の種類を入力してください "%>
