@@ -2,16 +2,16 @@ $(document).on('keyup', '#exampleFormControlInput2', function(e){
   e.preventDefault();
   var input = $.trim($(this).val()); 
 
+  function appendStore(store){
+              html = `<li id="liststore" data-store-id="${store.id}"data-store-name="${store.name}">
+                        ${store.name} [${store.kind}]
+                      </li>`
+    $('#result').append(html);
+  }
+
   function appendSelectedName(store_id,store_name){
     $("#exampleFormControlInput2").val(`${store_name}`);
     $("#exampleFormControlInput4").val(`${store_id}`);
-  }
-
-  function appendStore(store){
-              html = `<li id="liststore" data-store-id="${store.id}"data-store-name="${store.name}">
-                      ${store.name} [${store.kind}]
-                      </li>`
-  $('#result').append(html);
   }
 
     $.ajax({
