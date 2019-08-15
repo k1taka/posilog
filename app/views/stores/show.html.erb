@@ -1,6 +1,8 @@
 <div>
   <div class="card-header bg-white text-warning">
-    <p><%= @store_name %>さんへの投稿一覧</p>
+    <p><%= @store.name %>さんの詳細</p>
+    <p>サービスの種類：<%= @store.kind %></p>
+    <p>サービス紹介：<%= @store.profile %></p>
   </div>
   <% @logs.each do |log|%>
     <%= render partial: 'logs/log', locals: { log: log } %>
