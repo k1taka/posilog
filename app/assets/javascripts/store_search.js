@@ -18,15 +18,13 @@ $(document).on('keyup', '#exampleFormControlInput2', function(e){
     .done(function(data){
       $('#result').find('li').remove();
       $(data).each(function(i, store){
-        $('#result').append(`<li id="liststore" data-store-id="${store.id}"data-store-name="${store.name}">` + store.name + '</li>')
+        $('#result').append(`<li id="liststore" data-store-id="${store.id}"data-store-name="${store.name}">` + store.name +"   "+ `[${store.kind}]` + '</li>')
       });
     })
 
     $(document).on('click','#liststore', function(){
       var store_id = $(this).data('store-id');
       var store_name = $(this).data('store-name');
-      console.log(store_id)
-      console.log(store_name)
       appendSelectedName(store_id,store_name);
       $(this).parent().remove();
       })
