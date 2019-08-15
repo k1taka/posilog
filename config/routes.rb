@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :logs do
     resources :comments, only: [:create]
   end
-  resources :users
+  resources :users,only:[:show,:edit,:update] 
   resources :stores, only:[:show,:edit,:update] do
     collection do
       get "search"
