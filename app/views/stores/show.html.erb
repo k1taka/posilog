@@ -1,8 +1,9 @@
 <div>
   <div class="card-header bg-white text-warning">
+    <p><%= @store_name %>さんへの投稿一覧</p>
   </div>
   <% @logs.each do |log|%>
-      <%= render partial: 'logs/log', locals: { log: log } %>
+    <%= render partial: 'logs/log', locals: { log: log } %>
   <% end %>
     <%= paginate(@logs)%>
 </div>
