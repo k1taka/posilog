@@ -1,6 +1,8 @@
 <div>
   <div class="card-header bg-white text-warning">
-    <p><%= @nickname %>さんの投稿一覧</p>
+    <p><%= @user.nickname %>さんの詳細</p>
+    <p>紹介文：<%= @user.profile %></p>
+    <p>取得ポイント：<%= @user.point %></p>
   </div>
   <% @logs.each do |log|%>
       <%= render partial: 'logs/log', locals: { log: log } %>

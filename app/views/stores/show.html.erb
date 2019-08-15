@@ -1,0 +1,15 @@
+<div>
+  <div class="card-header bg-white text-warning">
+    <p><%= @store.name %>さんの詳細</p>
+    <p>URL：<%= @store.url %></p>
+    <p>サービスの種類：<%= @store.kind %></p>
+    <p>サービス紹介：<%= @store.profile %></p>
+    <% if store_signed_in? && current_store.id == @store.id %>
+      <%=link_to "編集",edit_store_path(@store.id),class: "btn btn-warning  text-white" %>
+    <% end %>
+  </div>
+  <% @logs.each do |log|%>
+    <%= render partial: 'logs/log', locals: { log: log } %>
+  <% end %>
+    <%= paginate(@logs)%>
+</div>

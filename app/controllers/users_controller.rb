@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   def show
-    @nickname = current_user.nickname
-    @logs = current_user.logs.page(params[:page]).per(5).order("created_at DESC")
+    @logs = Log.where(user_id: params[:id]).page(params[:page]).per(5)
+    @user = @logs[0].user
   end
 
 end
