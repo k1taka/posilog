@@ -39,6 +39,8 @@ class LogsController < ApplicationController
     @comment = Comment.new
   end
 
+  private
+
   def log_params
     params.require(:log).permit(:title,:good,:chance,:kind,:image,:store_id).merge(user_id: current_user.id)
   end
