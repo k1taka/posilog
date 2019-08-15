@@ -8,6 +8,7 @@ class StoresController < ApplicationController
   end
 
   def show
+    @logs = Log.where(store_id: params[:id]).page(params[:page]).per(5)
   end
-  
+
 end

@@ -4,7 +4,7 @@
       <%= log.title %>
     </div>
     <div class="card-header mb-3 text-warning">
-      <%=link_to "#{log.user.nickname}",user_path(log.id)%>さんから<%=link_to "#{log.store.name}",store_path(log.id)%>さんへの投稿です。
+      <%=link_to "#{log.user.nickname}",user_path(log.user_id)%>さんから<%=link_to "#{log.store.name}",store_path(log.store_id)%>さんへの投稿です。
     </div>        
     <div class="container mb-3">
       <div class="row">

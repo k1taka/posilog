@@ -1,1 +1,8 @@
-test
+<div>
+  <div class="card-header bg-white text-warning">
+  </div>
+  <% @logs.each do |log|%>
+      <%= render partial: 'logs/log', locals: { log: log } %>
+  <% end %>
+    <%= paginate(@logs)%>
+</div>
