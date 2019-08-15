@@ -7,6 +7,13 @@ $(document).on('keyup', '#exampleFormControlInput2', function(e){
     $("#exampleFormControlInput4").val(`${store_id}`);
   }
 
+  function appendStore(store){
+              html = `<li id="liststore" data-store-id="${store.id}"data-store-name="${store.name}">
+                      ${store.name} [${store.kind}]
+                      </li>`
+  $('#result').append(html);
+  }
+
     $.ajax({
     url: '/stores/search',
     type: 'GET',
@@ -18,7 +25,7 @@ $(document).on('keyup', '#exampleFormControlInput2', function(e){
     .done(function(data){
       $('#result').find('li').remove();
       $(data).each(function(i, store){
-        $('#result').append(`<li id="liststore" data-store-id="${store.id}"data-store-name="${store.name}">` + store.name +"   "+ `[${store.kind}]` + '</li>')
+        appendStore(store)
       });
     })
 
