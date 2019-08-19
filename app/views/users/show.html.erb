@@ -1,6 +1,9 @@
 <div>
   <div class="card-header bg-white text-warning">
     <p><%= @user.nickname %>さんの詳細</p>
+    <% if @user.image? %>
+      <%= image_tag @user.image.url %>
+    <% end %>
     <p>紹介文：<%= @user.profile %></p>
     <p>取得ポイント：<%= @user.point %></p>
     <% if user_signed_in? && current_user.id == @user.id %>
