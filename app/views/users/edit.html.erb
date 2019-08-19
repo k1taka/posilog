@@ -10,6 +10,11 @@
     <%= f.text_area :profile,class:"form-control form-control-posinega", id:"exampleFormControlTextarea1",rows:"3" ,value:"#{@user.profile}"%>
   </div>
 
+  <div class="form-group  ml-3 mr-3">
+    <label for="exampleFormControlFile1">Picture</label>
+    <%= f.file_field :image,class:"form-control-file",id:"exampleFormControlFile1",value:"#{@user.image}" %>
+  </div>
+
     <button type="submit" class="btn btn-warning  text-white  ml-3 mr-3" method="patch">Submit</button>
 </form>
 <%end%>

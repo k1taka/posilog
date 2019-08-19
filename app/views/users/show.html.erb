@@ -1,15 +1,20 @@
 <div>
   <div class="card-header bg-white text-warning">
     <p><%= @user.nickname %>さんの詳細</p>
+    <% if @user.image? %>
+      <%= image_tag @user.image.url %>
+    <% end %>
     <p>紹介文：<%= @user.profile %></p>
     <p>取得ポイント：<%= @user.point %></p>
     <% if user_signed_in? && current_user.id == @user.id %>
       <%=link_to "編集",edit_user_path(@user.id),class: "btn btn-warning  text-white" %>
     <% end %>
   </div>
-  <% @logs.each do |log|%>
-      <%= render partial: 'logs/log', locals: { log: log } %>
+  <% if current_user %>
+    <% @logs.each do |log|%>
+        <%= render partial: 'logs/log', locals: { log: log } %>
+    <% end %>
+      <%= paginate(@logs)%>
   <% end %>
-    <%= paginate(@logs)%>
 </div>
 
