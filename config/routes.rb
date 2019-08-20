@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root 'logs#index'
   resources :logs do
     resources :comments, only: [:create]
+    resources :store_comments, only: [:create]
     resources :log_images
   end
   resources :users,only:[:show,:edit,:update] 

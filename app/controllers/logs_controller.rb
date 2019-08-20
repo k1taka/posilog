@@ -41,6 +41,8 @@ class LogsController < ApplicationController
     @log = Log.find(params[:id])
     @comments = @log.comments.includes(:user)
     @comment = Comment.new
+    @store_comments = @log.store_comments.includes(:store)
+    @store_comment = StoreComment.new
   end
 
   private
