@@ -9,6 +9,7 @@ class LogsController < ApplicationController
   def new
     @log = Log.new
     gon.API_KEY = Rails.application.credentials.gcp[:API_KEY]
+    4.times{@log.log_images.build}
   end
 
   def create
@@ -19,8 +20,11 @@ class LogsController < ApplicationController
 
   def destroy
     log = Log.find(params[:id])
-    log.destroy
-    redirect_to root_path
+    begin
+      log.destroy
+    rescue NoMethodError
+      redirect_to root_path
+    end
   end
 
   def edit
@@ -42,7 +46,7 @@ class LogsController < ApplicationController
   private
 
   def log_params
-    params.require(:log).permit(:title,:good,:chance,:kind,:image,:store_id).merge(user_id: current_user.id)
+    params.require(:log).permit(:title,:good,:chance,:kind,:store_id,log_images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def move_to_index

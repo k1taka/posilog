@@ -16,26 +16,27 @@
     <%= f.hidden_field :store_id,id:"exampleFormControlInput4"%>
   </div>
 
-
   <div class="form-group  ml-3 mr-3">
     <label for="exampleFormControlInput1">提案の種類</label>
     <%= f.number_field :kind,class:"form-control",id:"exampleFormControlInput3",placeholder:"投稿する提案の種類を入力してください "%>
   </div>
   <div class="form-group  ml-3 mr-3">
-    <label for="exampleFormControlTextarea1">GoodPoint</label>
+    <label for="exampleFormControlTextarea1">GoodPoint form-control-posinega</label>
     <button type="button" class="btn btn-warning text-white">positive score:</button>
-    <%= f.text_area :good,class:"form-control form-control-posinega", id:"exampleFormControlTextarea1",rows:"4",placeholder:"ご利用をされたサービスの良かった点を入力してください"%>
+    <%= f.text_area :good,class:"form-control ", id:"exampleFormControlTextarea1",rows:"4",placeholder:"ご利用をされたサービスの良かった点を入力してください"%>
   </div>
     
   <div class="form-group  ml-3 mr-3">
-    <label for="exampleFormControlTextarea1">ChancePoint</label>
+    <label for="exampleFormControlTextarea1">ChancePoint  form-control-posinega</label>
     <button type="button" class="btn btn-warning text-white btn-chance">positive score:</button>
-    <%= f.text_area :chance,class:"form-control form-control-posinega", id:"exampleFormControlTextarea2",rows:"4",placeholder:"ご利用をされたサービスをもっと良くするための提案を入力してください" %>
+    <%= f.text_area :chance,class:"form-control", id:"exampleFormControlTextarea2",rows:"4",placeholder:"ご利用をされたサービスをもっと良くするための提案を入力してください" %>
   </div>
 
   <div class="form-group  ml-3 mr-3">
     <label for="exampleFormControlFile1">Picture</label>
-    <%= f.file_field :image,class:"form-control-file",id:"exampleFormControlFile1" %>
+    <%= f.fields_for :log_images do |i| %>
+      <%= i.file_field :image,class:"form-control-file",id:"exampleFormControlFile1" %>
+    <% end %>
   </div>
 
     <button type="submit" class="btn btn-warning text-white ml-3 mr-3">Submit</button>
