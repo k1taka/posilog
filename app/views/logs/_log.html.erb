@@ -45,8 +45,10 @@
     <div class="container">
         <div class="row col-md-offset-2"> 
           <div class="row col-md-offset-2 mt-5 col-sm-6"> 
-            <div>
+            <div>      
+            <% unless current_page?(log_path(log.id))%>      
               <%=link_to "詳細",log_path(log.id),class: "btn btn-warning text-white" %>
+            <% end %>
             <% if user_signed_in? && current_user.id == log.user_id %>
               <%=link_to "削除",log_path(log.id),method: :delete,class: "btn btn-warning  text-white" %>
               <%=link_to "編集",edit_log_path(log.id),class: "btn btn-warning  text-white" %>
