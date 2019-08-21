@@ -1,0 +1,9 @@
+<%# トップページ以外の時に表示をする %>
+<% unless current_page?(root_path)%>
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <% if current_page?(new_log_path)%>
+      <% breadcrumb :new_log %>
+    <% end%>
+    <%= breadcrumbs separator: " &rsaquo; "%>
+  </nav>
+<% end %>
