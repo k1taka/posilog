@@ -1,8 +1,32 @@
 <%# トップページ以外の時に表示をする %>
 <% unless current_page?(root_path)%>
-  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <% if current_page?(new_log_path)%>
-      <% breadcrumb :new_log %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <% if current_page?(new_store_session_path)%>
+      <% breadcrumb :new_store_session %>
+    <% elsif current_page?(new_store_registration_path)%>
+      <% breadcrumb :new_store_registration %>
+    <% elsif current_page?(edit_store_registration_path)%>
+      <% breadcrumb :edit_store_registration %>
+    <% elsif current_page?(new_user_session_path)%>
+      <% breadcrumb :new_user_session %>
+    <% elsif current_page?(new_user_registration_path)%>
+      <% breadcrumb :new_user_registration %>
+    <% elsif current_page?(edit_user_registration_path)%>
+      <% breadcrumb :edit_user_registration %>
+    <% elsif current_page?(new_log_path)%>
+      <% breadcrumb :new_log %>      
+    <% elsif current_page?(stores_path)%>
+      <% breadcrumb :stores %>      
+    <% elsif current_page?(store_path(params[:id]))%>
+      <% breadcrumb :store %>      
+    <% elsif current_page?(edit_store_path(params[:id]))%>
+      <% breadcrumb :edit_store %>      
+    <% elsif current_page?(log_path(params[:id]))%>
+      <% breadcrumb :log %>
+    <% elsif current_page?(user_path(params[:id]))%>
+      <% breadcrumb :user %>
+    <% elsif current_page?(edit_user_path(params[:id]))%>
+      <% breadcrumb :edit_user %>      
     <% end%>
     <%= breadcrumbs separator: " &rsaquo; "%>
   </nav>
