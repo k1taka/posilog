@@ -11,9 +11,6 @@ Rails.application.routes.draw do
   }
   root 'logs#index'
   resources :logs do
-    collection do
-      get "search"
-    end
     resources :comments, only: [:create]
     resources :store_comments, only: [:create]
     resources :log_images

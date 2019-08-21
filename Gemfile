@@ -92,3 +92,5 @@ gem 'gon'
 gem "binding_of_caller"
 
 gem 'ransack'
+
+gem "gretel"
