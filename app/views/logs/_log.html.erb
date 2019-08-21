@@ -1,7 +1,12 @@
 <div class="card">
   <div class="card-body">
     <div class="card-header bg-warning">
-      <%= log.title %>
+      <% if log.user.image? %>
+        <%= image_tag log.user.image.url,width:40,height:40,class:'rounded-circle',alt:"Circle image"%>        
+      <% else %>
+        <%= image_tag 'user_image.png',width:40,height:40,class:'rounded-circle',alt:"Circle image"%>        
+      <% end %>
+        <%= log.title %>
     </div>
     <div class="card-header mb-3 text-warning">
       <%=link_to "#{log.user.nickname}",user_path(log.user_id)%>さんから<%=link_to "#{log.store.name}",store_path(log.store_id)%>さんへの投稿です。
@@ -11,7 +16,7 @@
         <div class="col-sm-4">
           <p class="card-text">
             <% log.log_images.each do |t| %>
-              <%= image_tag t.image.to_s,width:100,height:100%>
+              <%= image_tag t.image.to_s,width:100,height:100,class:'rounded-lg',alt:"Rounded image"%>
             <% end %>
           </p>
         </div>
@@ -39,11 +44,6 @@
     </div>        
     <div class="container">
         <div class="row col-md-offset-2"> 
-          <div class="col-sm-6">
-          <%= image_tag 'himawari.jpg', class: 'rounded-left square' ,alt:"Slightly rounded image"%>
-          <%= image_tag 'shirotsumekusa.jpg', class: 'rounded-center square' ,alt:"Slightly rounded image"%>
-          <%= image_tag 'margalet.jpg', class: 'rounded-right square' ,alt:"Slightly rounded image"%>
-          </div>
           <div class="row col-md-offset-2 mt-5 col-sm-6"> 
             <div>
               <%=link_to "詳細",log_path(log.id),class: "btn btn-warning text-white" %>
