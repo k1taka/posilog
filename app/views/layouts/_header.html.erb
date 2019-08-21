@@ -18,11 +18,7 @@
         <li class="nav-item">
           <%= link_to "マイページ",user_path(current_user),class:"nav-link"%>
         </li>
-        <form class="form-inline my-2 my-lg-0  ">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
+
 
     <% elsif store_signed_in? %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -31,19 +27,10 @@
           <%= link_to "ログアウト", destroy_store_session_path,method: :delete,class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%# <%= link_to "新規投稿",new_log_path,class:"nav-link"%>
-        </li>
-        <li class="nav-item">
           <%= link_to "マイストア",store_path(current_store),class:"nav-link"%>
         </li>
-        <form class="form-inline my-2 my-lg-0  ">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-    
-    <% else %>
 
+    <% else %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -58,14 +45,15 @@
         <li class="nav-item">
           <%= link_to "ストア新規登録",new_store_registration_path,class:"nav-link"%>
         </li>        
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
     </div>
-
     <% end %>
-
+    <dl class="form-inline my-2 my-lg-0">
+      <%= search_form_for @search, url: stores_path do |f| %>
+        <%= f.text_field :name_cont ,placeholder: "Search",class:"form-control mr-sm-2" %>
+        <%= f.submit ("検索") , class: 'btn btn-outline-secondary my-2 my-sm-0'%>
+      <% end %>
+    </dl>
+    </div>
 
   </nav>
 </header>

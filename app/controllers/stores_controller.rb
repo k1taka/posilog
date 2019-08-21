@@ -1,5 +1,9 @@
 class StoresController < ApplicationController
 
+  def index
+    @stores = Store.all.order("created_at DESC")
+  end
+
   def search
     @stores = Store.where('name LIKE(?)', "%#{params[:keyword]}%")
     respond_to do |format| 
@@ -9,7 +13,7 @@ class StoresController < ApplicationController
 
   def show
     @logs = Log.where(store_id: params[:id]).page(params[:page]).per(5)
-    @store = @logs[0].store
+    @store = Store.find(params[:id])
   end
 
   def edit

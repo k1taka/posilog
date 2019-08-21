@@ -1,0 +1,19 @@
+  <div class="card-header bg-dismissible">
+    店舗一覧
+  </div>
+
+<% if @search_stores %>
+  <% @search_stores.each do |store|%>
+    <div class="card-header text-warning">
+      <%= link_to "#{store.name}",store_path(store.id) %>
+      <%= store.kind%>
+    </div>
+  <% end %>
+<% else %>
+  <% @stores.each do |store|%>
+    <div class="card-header text-warning">
+      <%= link_to "#{store.name}",store_path(store.id) %>
+      <%= store.kind%>
+    </div>
+  <% end %>
+<% end %>
