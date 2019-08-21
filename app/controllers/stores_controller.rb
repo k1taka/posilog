@@ -1,5 +1,9 @@
 class StoresController < ApplicationController
 
+  def index
+    @stores = Store.all.order("created_at DESC")
+  end
+
   def search
     @stores = Store.where('name LIKE(?)', "%#{params[:keyword]}%")
     respond_to do |format| 

@@ -11,12 +11,15 @@ Rails.application.routes.draw do
   }
   root 'logs#index'
   resources :logs do
+    collection do
+      get "search"
+    end
     resources :comments, only: [:create]
     resources :store_comments, only: [:create]
     resources :log_images
   end
   resources :users,only:[:show,:edit,:update] 
-  resources :stores, only:[:show,:edit,:update] do
+  resources :stores, only:[:show,:edit,:update,:index] do
     collection do
       get "search"
     end
