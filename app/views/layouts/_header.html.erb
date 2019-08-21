@@ -18,7 +18,9 @@
         <li class="nav-item">
           <%= link_to "マイページ",user_path(current_user),class:"nav-link"%>
         </li>
-
+        <li class="nav-item">
+          <%= link_to "サービス一覧",stores_path,class:"nav-link"%>
+        </li>
 
     <% elsif store_signed_in? %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
