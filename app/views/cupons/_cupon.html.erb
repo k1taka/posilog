@@ -1,4 +1,9 @@
 <div class="card col-3">
+  <% if cupon.image? %>
+    <%= image_tag cupon.image.url,height:130,class:'card-img-top',alt:"Card image cap"%>        
+  <% else %>
+    <%= image_tag 'user_image.png',height:130,class:'card-img-top',alt:"Card image cap"%>        
+  <% end %>
   <div class="card-body">
     <h5 class="card-title"><%= cupon.reason%></h5>
     <span class="card-text"><%= cupon.product %> </span>
