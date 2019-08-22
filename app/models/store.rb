@@ -6,5 +6,5 @@ class Store < ApplicationRecord
   has_many :logs
   has_many :cupons
   has_many :store_comments
-
+  
 end
