@@ -21,7 +21,7 @@ class CuponsController < ApplicationController
   def update
     cupon = Cupon.find(params[:id])
     cupon.update(cupon_params)
-    redirect_to root_path
+    redirect_to store_path(current_store.id)
   end
 
   private 
