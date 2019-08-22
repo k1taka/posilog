@@ -1,7 +1,7 @@
 <%# トップページ以外の時に表示をする %>
 <% unless current_page?(root_path)%>
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
-  <% if params[:id] == nil %>
+  <% if params[:store_id]%>
     <% if current_page?(new_store_cupon_path(params[:store_id]))%>
       <% breadcrumb :new_store_cupon %>  
     <% end%>
