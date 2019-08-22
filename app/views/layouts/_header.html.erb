@@ -31,6 +31,9 @@
         <li class="nav-item">
           <%= link_to "マイストア",store_path(current_store),class:"nav-link"%>
         </li>
+        <li class="nav-item">
+          <%= link_to "クーポン発行",new_store_cupon_path(current_store),class:"nav-link"%>
+        </li>
 
     <% else %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
