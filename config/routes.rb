@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
   resources :users,only:[:show,:edit,:update] 
   resources :stores, only:[:show,:edit,:update,:index] do
-    resources :cupons, only: [:new,:index,:edit,:update]
+    resources :cupons, only: [:new,:create,:index,:edit,:update]
     collection do
       get "search"
     end

@@ -7,6 +7,11 @@
     <% if store_signed_in? && current_store.id == @store.id %>
       <%=link_to "編集",edit_store_path(@store.id),class: "btn btn-warning  text-white" %>
     <% end %>
+    <div class="card-group mt-2">
+      <% @cupons.each do |cupon| %>
+        <%= render partial: 'cupons/cupon', locals: { cupon: cupon } %>
+      <% end %>
+    </div>
   </div>
   <% @logs.each do |log|%>
     <%= render partial: 'logs/log', locals: { log: log } %>

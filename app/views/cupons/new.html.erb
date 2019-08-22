@@ -1,1 +1,30 @@
-test
+<%= form_for [@store, @cupon] do |f| %>
+<form>
+  <div class="form-group ml-3 mr-3 mt-3">
+    <label for="exampleFormControlInput1">クーポンの背景 ex)創業1周年記念、レディース限定割引</label>
+    <%= f.text_field :reason,class:"form-control",id:"exampleFormControlInput1",placeholder:"タイトルを入力してください",size:15%>
+  </div>
+
+  <div class="form-group ml-3 mr-3 mt-3">
+    <label for="exampleFormControlInput1">商品名 ex)全品、ラーメン</label>
+    <%= f.text_field :product,class:"form-control",id:"exampleFormControlInput1",placeholder:"タイトルを入力してください",size:15%>
+  </div>
+
+  <div class="form-group ml-3 mr-3 mt-3">
+    <label for="exampleFormControlInput1">サービス内容 ex)300円OFF、10%割引,味玉1個</label>
+    <%= f.text_field :discount,class:"form-control",id:"exampleFormControlInput1",placeholder:"タイトルを入力してください",size:15%>
+  </div>
+
+  <div class="form-group ml-3 mr-3 mt-3">
+    <label for="exampleFormControlInput1">但し書き ex)ただし、お一人様お一つ限りです。</label>
+    <%= f.text_field :writing,class:"form-control",id:"exampleFormControlInput1",placeholder:"タイトルを入力してください",size:15%>
+  </div>
+
+  <div class="form-group ml-3 mr-3 mt-3">
+    <label for="exampleFormControlInput1">有効期限(日) ex）3と記載をした場合は3日間有効になります。 </label>
+    <%= f.number_field :limit,class:"form-control",id:"exampleFormControlInput1",placeholder:"タイトルを入力してください",size:15%>
+  </div>
+
+    <button type="submit" class="btn btn-warning text-white ml-3 mr-3">Submit</button>
+</form>
+<%end%>
