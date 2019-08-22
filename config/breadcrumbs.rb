@@ -63,8 +63,13 @@ crumb :store do|store|
   parent :root
 end
 
+crumb :new_store_cupon do|new_store_cupon|
+  link "クーポン編集", new_store_cupon_path
+  parent :root
+end
+
 crumb :edit_store do|edit_store|
-  link "マイストア編集", edit_store_path
+  link "クーポン発行", edit_store_path
   parent :root
 end
 

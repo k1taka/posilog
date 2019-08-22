@@ -1,0 +1,17 @@
+<div class="card col-3">
+  <% if cupon.image? %>
+    <%= image_tag cupon.image.url,height:130,class:'card-img-top',alt:"Card image cap"%>        
+  <% else %>
+    <%= image_tag 'user_image.png',height:130,class:'card-img-top',alt:"Card image cap"%>        
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= cupon.reason%></h5>
+    <span class="card-text"><%= cupon.product %> </span>
+    <span class="card-text" style="font-size :large"><%= cupon.discount %></span>
+    <p class="card-text" style = "font-size : small"><%= cupon.writing %> </p>
+    <p class="card-text" style = "font-size : small">有効期限<%= (cupon.created_at+cupon.limit.minutes).strftime("%Y-%m-%d %H:%M:%S") %> </p>
+    <% if store_signed_in? && current_store.id == cupon.store.id %>
+      <%=link_to "編集",edit_store_cupon_path(current_store,cupon.id),class: "btn btn-warning  text-white" %>
+    <% end %>
+  </div>
+</div>
