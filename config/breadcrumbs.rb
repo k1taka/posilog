@@ -64,12 +64,12 @@ crumb :store do|store|
 end
 
 crumb :new_store_cupon do|new_store_cupon|
-  link "クーポン編集", new_store_cupon_path
+  link "クーポン発行", new_store_cupon_path
   parent :root
 end
 
 crumb :edit_store do|edit_store|
-  link "クーポン発行", edit_store_path
+  link "クーポン編集", edit_store_path
   parent :root
 end
 
