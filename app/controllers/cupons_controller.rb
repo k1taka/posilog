@@ -26,7 +26,7 @@ class CuponsController < ApplicationController
 
   private 
   def cupon_params
-    params.require(:cupon).permit(:reason,:product,:discount,:image,:limit,:status).merge(store_id: current_store.id)
+    params.require(:cupon).permit(:reason,:product,:discount,:image,:limit,:witing,:status).merge(store_id: current_store.id)
   end
 
 end
