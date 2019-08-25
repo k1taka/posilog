@@ -6,6 +6,11 @@
     <p>サービス紹介：<%= @store.profile %></p>
     <% if store_signed_in? && current_store.id == @store.id %>
       <%=link_to "編集",edit_store_path(@store.id),class: "btn btn-warning  text-white" %>
+      <%= form_with url:pay_store_url(@store) do |f|%>
+        <form>
+          <script src="https://checkout.pay.jp/" class="payjp-button" data-key="pk_test_f735622d6af4ea2bb5205c4e" data-text="顧客作成"></script>
+        </form>
+      <% end %>
     <% end %>
     <h4 class="mt-2">期間限定クーポン一覧</h4>
     <div class="card-group mt-2">
