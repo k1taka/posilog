@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'card/new'
+  get 'card/show'
   devise_for :stores, controllers: {
     sessions:      'stores/sessions',
     passwords:     'stores/passwords',
@@ -17,6 +19,9 @@ Rails.application.routes.draw do
   end
   resources :users,only:[:show,:edit,:update] 
   resources :stores, only:[:show,:edit,:update,:index] do
+    member do
+      post "pay"
+    end
     resources :cupons, only: [:new,:create,:edit,:update]
     collection do
       get "search"

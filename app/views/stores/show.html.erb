@@ -5,7 +5,8 @@
     <p>サービスの種類：<%= @store.kind %></p>
     <p>サービス紹介：<%= @store.profile %></p>
     <% if store_signed_in? && current_store.id == @store.id %>
-      <%=link_to "編集",edit_store_path(@store.id),class: "btn btn-warning  text-white" %>
+      <%=link_to "サービス情報編集",edit_store_path(@store.id),class: "btn btn-warning  text-white" %>
+      <%=link_to "プラン・クレジット情報作成",card_new_path,class: "btn btn-warning  text-white" %>
     <% end %>
     <h4 class="mt-2">期間限定クーポン一覧</h4>
     <div class="card-group mt-2">
