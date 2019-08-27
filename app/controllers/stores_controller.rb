@@ -2,7 +2,6 @@ class StoresController < ApplicationController
   before_action :timepass,only:[:show]
   before_action :payjp
 
-
   def index
     @stores = Store.all.order("created_at DESC")
   end

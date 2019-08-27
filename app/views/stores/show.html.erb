@@ -15,8 +15,10 @@
       <% end %>
     </div>
   </div>
-  <% @logs.each do |log|%>
-    <%= render partial: 'logs/log', locals: { log: log } %>
-  <% end %>
+  <div class="">
+    <% @logs.each do |log|%>
+      <%= render partial: 'logs/log', locals: { log: log } %>
+    <% end %>
+  </div>
     <%= paginate(@logs)%>
 </div>
