@@ -1,10 +1,15 @@
 .top-content{
-  margin:20px 50px;
-  width:90vw;
+  width:100vw;
   height:384px;
   .himawari{
     background: image-url('himawari.jpg');
-    width:90vw;
+    width:100vw;
+    height:384px;
+    margin:0 auto;
+  }
+  .margalet{
+    background: image-url('margalet.jpg');
+    width:100vw;
     height:384px;
     margin:0 auto;
   }
@@ -18,4 +23,11 @@
 }
 .right-float{
   float:right;
+}
+
+.cupon_boxes{
+  width:300px;
+  position:absolute;
+  left:1050px;
+  top:460px;
 }
