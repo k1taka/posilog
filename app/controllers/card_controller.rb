@@ -13,11 +13,11 @@ class CardController < ApplicationController
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
-      description: '登録テスト', #なくてもOK
-      email: current_store.email, #なくてもOK
+      description: '登録テスト',
+      email: current_store.email, 
       card: params['payjp-token'],
       metadata: {store_id: current_store.id}
-      ) #念の為metadataにstore_idを入れましたがなくてもOK
+      ) 
       @card = Card.new(store_id: current_store.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: "show"
