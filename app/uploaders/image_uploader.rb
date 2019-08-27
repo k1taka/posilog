@@ -4,6 +4,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   process resize_to_fit: [300, 300]
 
+  # 画像のサイズのバリデーション
+  def size_range
+    1..10.megabytes
+  end
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
