@@ -9,14 +9,16 @@
       <%=link_to "プラン・クレジット情報作成",card_new_path,class: "btn btn-warning  text-white" %>
     <% end %>
     <h4 class="mt-2">期間限定クーポン一覧</h4>
-    <div class="card-group mt-2">
+    <div class="card-group mt-2 col-3">
       <% @cupons.each do |cupon| %>
         <%= render partial: 'cupons/cupon', locals: { cupon: cupon } %>
       <% end %>
     </div>
   </div>
-  <% @logs.each do |log|%>
-    <%= render partial: 'logs/log', locals: { log: log } %>
-  <% end %>
+  <div class="">
+    <% @logs.each do |log|%>
+      <%= render partial: 'logs/log', locals: { log: log } %>
+    <% end %>
+  </div>
     <%= paginate(@logs)%>
 </div>

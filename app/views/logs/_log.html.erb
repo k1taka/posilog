@@ -1,58 +1,57 @@
-<div class="card">
-  <div class="card-body">
-    <div class="card-header bg-warning">
-      <% if log.user.image? %>
-        <%= image_tag log.user.image.url,width:40,height:40,class:'rounded-circle',alt:"Circle image"%>        
-      <% else %>
-        <%= image_tag 'user_image.png',width:40,height:40,class:'rounded-circle',alt:"Circle image"%>        
-      <% end %>
-        <%= log.title %>
-    </div>
-    <div class="card-header mb-3 text-warning">
-      <%=link_to "#{log.user.nickname}",user_path(log.user_id)%>さんから<%=link_to "#{log.store.name}",store_path(log.store_id)%>さんへの投稿です。
-    </div>        
-    <div class="container mb-3">
-      <div class="row">
-        <div class="col-sm-4">
-          <p class="card-text">
-            <% log.log_images.each do |t| %>
-              <%= image_tag t.image.to_s,width:100,height:100,class:'rounded-lg',alt:"Rounded image"%>
-            <% end %>
-          </p>
-        </div>
+<div class="card-body ml-5 col-sm-8">
+  <div class="card-header bg-warning">
+    <% if log.user.image? %>
+      <%= image_tag log.user.image.url,width:40,height:40,class:'rounded-circle',alt:"Circle image"%>        
+    <% else %>
+      <%= image_tag 'user_image.png',width:40,height:40,class:'rounded-circle',alt:"Circle image"%>        
+    <% end %>
+      <%= log.title %>
+  </div>
+  <div class="card-header pb-2 text-warning">
+    <%=link_to "#{log.user.nickname}",user_path(log.user_id)%>さんから<%=link_to "#{log.store.name}",store_path(log.store_id)%>さんへの投稿です。
+  </div>        
+  <div class="container pt-3 pb-3 bg-light">
+    <div class="row">
       <div class="col-sm-4">
-      <h4 class="card-title">
-        <span data-toggle="tooltip" title="ご利用をされたサービスの良かった点です。">
-          GoodPoint
-        </span>
-      </h4>
         <p class="card-text">
-          <%= log.good%>
+          <% log.log_images.each do |t| %>
+            <%= image_tag t.image.to_s,width:100,height:100,class:'rounded-lg',alt:"Rounded image"%>
+          <% end %>
         </p>
       </div>
-        <div class="col-sm-4">
-          <h4 class="card-title">
-            <span data-toggle="tooltip" title="ご利用をされたサービスをもっと良くするための提案です。">
-              ChancePoint
-            </span>
-          </h4>
-          <p class="card-text">
-            <%= log.chance%>
-          </p>
-        </div>
+    <div class="col-sm-4">
+    <h4 class="card-title">
+      <span data-toggle="tooltip" title="ご利用をされたサービスの良かった点です。">
+        GoodPoint
+      </span>
+    </h4>
+      <p class="card-text">
+        <%= log.good%>
+      </p>
+    </div>
+      <div class="col-sm-4">
+        <h4 class="card-title">
+          <span data-toggle="tooltip" title="ご利用をされたサービスをもっと良くするための提案です。">
+            ChancePoint
+          </span>
+        </h4>
+        <p class="card-text">
+          <%= log.chance%>
+        </p>
       </div>
-    </div>        
-    <div class="container">
-        <div class="row col-md-offset-2"> 
-          <div class="row col-md-offset-2 mt-5 col-sm-6"> 
-            <div>      
-            <% unless current_page?(log_path(log.id))%>      
-              <%=link_to "詳細",log_path(log.id),class: "btn btn-warning text-white" %>
-            <% end %>
-            <% if user_signed_in? && current_user.id == log.user_id %>
-              <%=link_to "削除",log_path(log.id),method: :delete,class: "btn btn-warning  text-white" %>
-              <%=link_to "編集",edit_log_path(log.id),class: "btn btn-warning  text-white" %>
-            <% end %>
+    </div>
+  </div>        
+  <div class="container bg-light ">
+      <div class="row col-md-offset-2"> 
+        <div class="row col-md-offset-2 mt-3 ml-3  mb-3 col-sm-4"> 
+          <div>      
+          <% unless current_page?(log_path(log.id))%>
+            <%=link_to "詳細",log_path(log.id),class: "btn btn-warning text-white" %>
+          <% end %>
+          <% if user_signed_in? && current_user.id == log.user_id %>
+            <%=link_to "削除",log_path(log.id),method: :delete,class: "btn btn-warning  text-white" %>
+            <%=link_to "編集",edit_log_path(log.id),class: "btn btn-warning text-white" %>
+          <% end %>
           </div>           
         </div> 
       </div>

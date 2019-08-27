@@ -6,17 +6,20 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <%= include_gon %>
     <%= javascript_include_tag 'application' %>
     <script type="text/javascript" src="https://js.pay.jp/"></script>
     <script type="text/javascript">Payjp.setPublicKey('pk_test_f735622d6af4ea2bb5205c4e');</script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
   </head>
 
-  <%= render partial: 'layouts/header' %>
-  <%= render partial: 'layouts/breadcrumbs' %>
-
   <body>
+    <%= render partial: 'layouts/header' %>
+    <%= render partial: 'layouts/breadcrumbs' %>
     <%= yield %>
   </body>
+    <%= render partial: 'layouts/footer'%>
+
 </html>

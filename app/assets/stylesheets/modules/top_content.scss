@@ -1,4 +1,18 @@
 .himawari_message{
+  position: relative;
+  p{
+  color:white;
+  font-size:50px;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Comic Sans MS";
+  line-height:100px;
+  position: absolute;
+  bottom:100px;
+  left:250px;
+  }
+}
+.margalet_message{
   color:white;
   font-size:50px;
   font-weight: bold;
