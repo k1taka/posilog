@@ -16,7 +16,12 @@ class LogsController < ApplicationController
   def create
     @log=Log.create(log_params)
     @log.user_id = current_user.id
-    redirect_to root_path
+
+    if @log.save
+      redirect_to root_path
+    else        
+      render 'new' #失敗の場合 
+    end
   end
 
   def destroy
@@ -49,7 +54,7 @@ class LogsController < ApplicationController
   private
 
   def log_params
-    params.require(:log).permit(:title,:good,:chance,:kind,:store_id,log_images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:log).permit(:title,:good,:chance,:kind,:store_id,:good_score,:chance_score,log_images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def move_to_index
