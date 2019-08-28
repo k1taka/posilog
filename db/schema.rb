@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_25_150448) do
+ActiveRecord::Schema.define(version: 2019_08_28_055105) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "store_id", null: false
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 2019_08_25_150448) do
     t.integer "user_id"
     t.float "polarity", default: 0.0
     t.bigint "store_id"
+    t.integer "good_score"
+    t.integer "chance_score"
     t.index ["store_id"], name: "index_logs_on_store_id"
   end
 
