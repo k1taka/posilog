@@ -1,4 +1,13 @@
 <div ml-3>
+  <% if @cupon.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+      <% @cupon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
   <%= form_for [@store, @cupon] do |f| %>
   <form>
     <div class="form-group col-7 mr-3 mt-3">

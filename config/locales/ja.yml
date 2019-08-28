@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+    attributes:
+      store:
+        name: サービス名
+        password: パスワード
+        email: Eメール
+      log:
+        title: タイトル名
+        store_id: サービス名
+        kind: 提案の種類
+        good: 良かった点
+        chance: 改善点

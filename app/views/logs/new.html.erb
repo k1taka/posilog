@@ -1,4 +1,13 @@
 <div class= "ml-3">
+  <% if @log.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+      <% @log.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
   <%= form_for(@log) do |f| %>
   <form>
@@ -14,7 +23,6 @@
     </div>
 
     <div class="hidden_store">
-      <label></label>
       <%= f.hidden_field :store_id,id:"exampleFormControlInput4"%>
     </div>
 
@@ -29,7 +37,7 @@
     </div>
       
     <div class="form-group  col-7 mr-3">
-      <label for="exampleFormControlTextarea1">ChancePoint</label>
+      <label for="exampleFormControlTextarea2">ChancePoint</label>
       <button type="button" class="btn btn-warning text-white btn-chance">positive score:</button>
       <%= f.text_area :chance,class:"form-control  form-control-posinega", id:"exampleFormControlTextarea2",rows:"4",placeholder:"ご利用をされたサービスをもっと良くするための提案を入力してください" %>
     </div>
@@ -39,6 +47,14 @@
       <%= f.fields_for :log_images do |i| %>
         <%= i.file_field :image,class:"form-control-file",id:"exampleFormControlFile1" %>
       <% end %>
+    </div>
+
+    <div class="hidden_good_score">
+      <%= f.hidden_field :good_score,id:"exampleFormControlInput_good"%>
+    </div>
+
+    <div class="hidden_chance_score">
+      <%= f.hidden_field :chance_score,id:"exampleFormControlInput_chance"%>
     </div>
 
       <button type="submit" class="btn btn-warning text-white ml-3 mr-3">Submit</button>
