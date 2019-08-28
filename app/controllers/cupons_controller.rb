@@ -7,7 +7,11 @@ class CuponsController < ApplicationController
 
   def create
     @cupon = Cupon.create(cupon_params)
-    redirect_to store_path(current_store.id)
+    if @cupon.save
+      redirect_to store_path(current_store.id)
+    else        
+      redirect_to new_store_cupon_path(current_store.id)
+    end
   end
 
   def index
