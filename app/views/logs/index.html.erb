@@ -1,8 +1,10 @@
 <div>
-  <%= render 'top-content' %>
+  <div>
+    <%= render 'top-content' %>
+  </div>
   <div>
     <div class = "cupon_boxes d-flex flex-wrap">  
-      <h3 class= "badge badge-light">最近公開されたクーポン</h3>
+      <h3 class= "badge badge-light mt-3">最近公開されたクーポン</h3>
       <% @cupons.each do |cupon| %>
         <%= render partial: 'cupons/cupon', locals: { cupon: cupon } %>
       <% end %>

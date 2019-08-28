@@ -8,6 +8,12 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     attributes:
       store:
-        name: 名前
+        name: サービス名
         password: パスワード
         email: Eメール
+      log:
+        title: タイトル名
+        store_id: サービス名
+        kind: 提案の種類
+        good: 良かった点
+        chance: 改善点
