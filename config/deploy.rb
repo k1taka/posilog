@@ -1,8 +1,6 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-set :bundle_gemfile,  "server/Gemfile"
-
 # Capistranoのログの表示に利用する
 set :application, 'posilog'
 
