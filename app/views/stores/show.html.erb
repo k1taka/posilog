@@ -1,4 +1,4 @@
-<div>
+<div class="card ml-3 mr-3">
   <div class="card-header bg-white text-warning">
     <p><%= @store.name %>さんの詳細</p>
     <p>URL：<%= @store.url %></p>
@@ -6,7 +6,6 @@
     <p>サービス紹介：<%= @store.profile %></p>
     <% if store_signed_in? && current_store.id == @store.id %>
       <%=link_to "サービス情報編集",edit_store_path(@store.id),class: "btn btn-warning  text-white" %>
-      <%# <%=link_to "プラン・クレジット情報作成",card_new_path,class: "btn btn-warning  text-white" %> 
     <% end %>
     <h4 class="mt-2">期間限定クーポン一覧</h4>
     <div class="card-group mt-2 ">
