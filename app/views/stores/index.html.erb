@@ -1,18 +1,8 @@
 <% if @search_stores %>
-  <% @search_stores.each do |store|%>
-    <div class="card-header text-warning">
-      <%= link_to "#{store.name}",store_path(store.id) %>
-      <%= store.kind%>
-    </div>
-  <% end %>
+  <%= render partial: 'store_display',collection: @search_stores, as: "store" %>
 <% else %>
-  <div class="card-header bg-dismissible">
+  <div class="card-header bg-dismissible ">
     店舗一覧
   </div>
-  <% @stores.each do |store|%>
-    <div class="card-header text-warning">
-      <%= link_to "#{store.name}",store_path(store.id) %>
-      <%= store.kind%>
-    </div>
-  <% end %>
+  <%= render partial: 'store_display',collection: @stores, as: "store" %>
 <% end %>
