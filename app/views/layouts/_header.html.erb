@@ -21,7 +21,9 @@
         <li class="nav-item">
           <%= link_to "サービス一覧",stores_path,class:"nav-link"%>
         </li>
-
+        <li class="nav-item">
+          <%= link_to "開発への想い","https://qiita.com/k1taka/items/80f44a383ca08818a6db",class:"nav-link"%>
+        </li>       
     <% elsif store_signed_in? %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -34,7 +36,9 @@
         <li class="nav-item">
           <%= link_to "クーポン発行",new_store_cupon_path(current_store),class:"nav-link"%>
         </li>
-
+        <li class="nav-item">
+          <%= link_to "開発への想い","https://qiita.com/k1taka/items/80f44a383ca08818a6db",class:"nav-link"%>
+        </li>       
     <% else %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -50,6 +54,9 @@
         <li class="nav-item">
           <%= link_to "ストア新規登録",new_store_registration_path,class:"nav-link"%>
         </li>        
+        <li class="nav-item">
+          <%= link_to "開発への想い","https://qiita.com/k1taka/items/80f44a383ca08818a6db",class:"nav-link"%>
+        </li>       
     </div>
     <% end %>
     <dl class="form-inline my-2 my-lg-0">
