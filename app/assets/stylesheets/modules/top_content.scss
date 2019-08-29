@@ -1,23 +1,12 @@
-.himawari_message{
-  position: relative;
-  p{
-  color:white;
-  font-size:50px;
-  font-weight: bold;
-  -webkit-text-stroke: 1px grey;
-  text-align: center;
-  font-family: "Comic Sans MS";
-  line-height:100px;
-  position: absolute;
-  bottom:100px;
-  left:250px;
+.carousel_message{
+  h2{
+    font-size:35px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px lightgrey;
   }
-}
-.margalet_message{
-  color:white;
-  font-size:50px;
-  font-weight: bold;
-  text-align: center;
-  font-family: "Comic Sans MS";
-  line-height:100px;
+  p{
+    font-size:20px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px lightgrey;
+  }
 }

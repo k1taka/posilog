@@ -1,22 +1,32 @@
-
-
-<div id="carouselFadeExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
-  <div class="carousel-inner" role="listbox">
-    <div class="carousel-item himawari_message active">
-      <%= image_tag 'shirotsumekusa.jpg',height:350,class:'d-block w-100',alt:"First slide"%>        
-      <p>改善案の投稿で応援をできる口コミサイト</p>
+<div class="bd-example">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <%= image_tag 'margalet.jpg',height:350,class:'d-block w-100',alt:"Second slide"%>        
+        <div class="carousel-caption d-none d-md-block carousel_message ">
+          <h2>Positiveな改善案を集めた口コミサイト</h2>
+          <p>〜評価ではなく、応援で誰にとっても良いサービスを一緒にで作り上げる〜</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag 'shirotsumekusa.jpg',height:350,class:'d-block w-100',alt:"Second slide"%>        
+        <div class="carousel-caption d-none d-md-block carousel_message ">
+          <h2>Positiveな改善案を集めた口コミサイト</h2>
+          <p>〜評価ではなく、応援で誰にとっても良いサービスを一緒にで作り上げる〜</p>
+        </div>
+      </div>
     </div>
-    <div class="carousel-item himawari_message">
-      <%= image_tag 'margalet.jpg',height:350,class:'d-block w-100',alt:"Second slide"%>        
-      <p>改善案の投稿で応援をできる口コミサイト</p>
-    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-  <a class="carousel-control-prev" href="#carouselFadeExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselFadeExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
