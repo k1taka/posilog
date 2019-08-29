@@ -1,38 +1,40 @@
 <div>
   <%= render partial: 'log', locals: { log: @log } %>
     <%# store側のコメント %>
-    <p>サービス提供側のコメント</p>
-    <% @store_comments.each do |c| %>
-      <div class="card">
-        <div class="card-body ml-3">
-        <%= "#{c.text}"%>
+    <div class="ml-5">
+      <p>サービス提供側のコメント</p>
+      <% @store_comments.each do |c| %>
+        <div class="card  col-7">
+          <div class="card-body ml-5 ">
+          <%= "#{c.text}"%>
+          </div>
         </div>
-      </div>
-    <% end %>
-    <%# user側のコメント %>
-    <p>登録ユーザーのコメント</p>
-    <% @comments.each do |c| %>
-      <div class="card">
-        <div class="card-body ml-3">
-        <%= "#{c.user.nickname}さんのコメント #{c.text}"%>
+      <% end %>
+      <%# user側のコメント %>
+      <p>登録ユーザーのコメント</p>
+      <% @comments.each do |c| %>
+        <div class="card  col-7">
+          <div class="card-body">
+          <%= "#{c.user.nickname}さんのコメント #{c.text}"%>
+          </div>
         </div>
-      </div>
-    <% end %>
-    <%# storeでサインインしている場合 %>
-    <% if store_signed_in? %>
-      <%= form_for [@log, @store_comment] do |f| %>
-        <%= f.text_area :text,rows:"2",class:"form-control m-3"%>
-          <br>
-        <%= f.submit 'コメント',class: "btn btn-warning text-white ml-3 mb-3" %>
       <% end %>
-    <% end %>
-    <%# userでサインインしている場合 %>
-    <% if user_signed_in? %>
-      <%= form_for [@log, @comment] do |f| %>
-        <%= f.text_area :text,rows:"2",class:"form-control m-3"%>
-          <br>
-        <%= f.submit 'コメント',class: "btn btn-warning text-white ml-3 mb-3" %>
+      <%# storeでサインインしている場合 %>
+      <% if store_signed_in? %>
+        <%= form_for [@log, @store_comment] do |f| %>
+          <%= f.text_area :text,rows:"2",class:"form-control col-7 mb-3"%>
+            <br>
+          <%= f.submit 'コメント',class: "btn btn-warning text-white mb-3" %>
+        <% end %>
       <% end %>
-    <% end %>
-    </div> 
+      <%# userでサインインしている場合 %>
+      <% if user_signed_in? %>
+        <%= form_for [@log, @comment] do |f| %>
+          <%= f.text_area :text,rows:"2",class:"form-control col-7 "%>
+            <br>
+          <%= f.submit 'コメント',class: "btn btn-warning text-white mb-3" %>
+        <% end %>
+      <% end %>
+      </div> 
+  </div>
 </div>

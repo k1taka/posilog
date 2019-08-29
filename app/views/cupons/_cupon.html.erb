@@ -1,10 +1,13 @@
 <div class="card">
   <% if cupon.image? %>
-    <%= image_tag cupon.image.url,height:130,class:'card-img-top',alt:"Card image cap"%>        
+    <%= image_tag cupon.image.url,height:130,width:300,class:'card-img-top',alt:"Card image cap"%>        
   <% else %>
-    <%= image_tag 'user_image.png',height:130,class:'card-img-top',alt:"Card image cap"%>        
+    <%= image_tag 'user_image.png',height:130,width:300,class:'card-img-top',alt:"Card image cap"%>        
   <% end %>
   <div class="card-body">
+    <% if current_page?(root_path)%>
+      <h5 class="card-title"><%= cupon.store.name%></h5>
+    <%end%>
     <h5 class="card-title"><%= cupon.reason%></h5>
     <span class="card-text"><%= cupon.product %> </span>
     <span class="card-text" style="font-size :large"><%= cupon.discount %></span>
