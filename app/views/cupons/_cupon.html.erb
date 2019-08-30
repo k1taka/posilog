@@ -16,5 +16,8 @@
     <% if store_signed_in? && current_store.id == cupon.store.id %>
       <%=link_to "編集",edit_store_cupon_path(current_store,cupon.id),class: "btn btn-warning  text-white" %>
     <% end %>
+    <% unless current_page?(store_path(cupon.store.id))%>
+      <%=link_to "サービス詳細",store_path(cupon.store.id),class: "btn btn-warning  text-white" %>
+    <% end %>
   </div>
 </div>

@@ -4,7 +4,7 @@ class LogsController < ApplicationController
 
   def index
     @logs = Log.includes(:user).page(params[:page]).per(5).order("created_at DESC")
-    @cupons = Cupon.where(status:"open").limit(5).order("created_at DESC")
+    @cupons = Cupon.where(status:"open").limit(4).order("created_at DESC")
   end
 
   def new
