@@ -7,7 +7,7 @@
     <% end %>
       <%= log.title %>
   </div>
-  <div class="card-header pb-2 text-warning">
+  <div class="card-header pb-2 text-warning card-header_log">
     <%=link_to "#{log.user.nickname}",user_path(log.user_id)%>さんから<%=link_to "#{log.store.name}",store_path(log.store_id)%>さんへの投稿です。
   </div>        
   <div class="container pt-3 pb-3 bg-light">
@@ -49,7 +49,30 @@
             <%=link_to "詳細",log_path(log.id),class: "btn btn-warning text-white" %>
           <% end %>
           <% if user_signed_in? && current_user.id == log.user_id %>
-            <%=link_to "削除",log_path(log.id),method: :delete,class: "btn btn-warning  text-white" %>
+            <button type="button" class="btn btn-warning text-white" data-toggle="modal" data-target="#exampleModal3">
+              削除
+            </button>
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModal3Label">投稿データ削除確認</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        「<%=log.title %>」を本当に削除しても問題ないですか？<br>※一度削除したデータは元に戻せません。
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning text-white" data-dismiss="modal">戻る</button>
+        <%=link_to "削除",log_path(log.id),method: :delete,class: "btn btn-warning text-white",data:{dismiss:"modal"} %>
+      </div>
+    </div>
+  </div>
+</div>
+
             <%=link_to "編集",edit_log_path(log.id),class: "btn btn-warning text-white" %>
           <% end %>
           </div>           

@@ -5,7 +5,7 @@
       <p>サービス提供側のコメント</p>
       <% @store_comments.each do |c| %>
         <div class="card  col-7">
-          <div class="card-body ml-5 ">
+          <div class="card-body ">
           <%= "#{c.text}"%>
           </div>
         </div>
@@ -21,6 +21,7 @@
       <% end %>
       <%# storeでサインインしている場合 %>
       <% if store_signed_in? %>
+      <p>コメントを書き込んでください</p>
         <%= form_for [@log, @store_comment] do |f| %>
           <%= f.text_area :text,rows:"2",class:"form-control col-7 mb-3"%>
             <br>
@@ -29,6 +30,7 @@
       <% end %>
       <%# userでサインインしている場合 %>
       <% if user_signed_in? %>
+        <p>コメントを書き込んでください</p>
         <%= form_for [@log, @comment] do |f| %>
           <%= f.text_area :text,rows:"2",class:"form-control col-7 "%>
             <br>
