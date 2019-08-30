@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_055105) do
+ActiveRecord::Schema.define(version: 2019_08_30_145156) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "store_id", null: false
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 2019_08_28_055105) do
     t.string "title", null: false
     t.text "good", null: false
     t.text "chance", null: false
-    t.string "iine", default: "0", null: false
     t.string "kind", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
