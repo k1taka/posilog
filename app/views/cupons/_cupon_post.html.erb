@@ -37,8 +37,11 @@
 
     <div class="form-group  col-7 mr-3">
       <label for="exampleFormControlFile1">Picture</label>
-      <%= f.file_field :image,class:"form-control-file",id:"exampleFormControlFile1" %>
+        <%= f.file_field :image,class:"form-control-file",id:"exampleFormControlFile1" %>
     </div>
+
+
+
     <%# 初回投稿時以外はステータスの変更も可能にする %>
     <% unless current_page?(new_store_cupon_path(params[:store_id]))%>
       <div class="field ml-3">
