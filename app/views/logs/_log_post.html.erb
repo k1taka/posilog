@@ -16,8 +16,14 @@
       <%= f.text_field :title,class:"form-control",id:"exampleFormControlInput1",placeholder:"タイトルを入力してください",size:15%>
     </div>
     <div class="form-group  col-7 mr-3">
-      <label for="exampleFormControlInput1">サービス名(検索をして該当をするサービスを選択してください) ex test test:posilog</label>
-      <input class="form-control" id="exampleFormControlInput2" placeholder="投稿するサービス名を入力してください">
+      <label for="exampleFormControlInput1">サービス名(検索をして該当をするサービスを選択してください) ex test test:posilog
+        <button type="button" class="btn btn-warning text-white" id="btn-service-delete">再入力</button>
+      </label>
+      <% if current_page?(new_log_path)%>
+        <%= f.text_field :store_id,class:"form-control",id:"exampleFormControlInput2",placeholder:"投稿するサービス名を入力してください",size:20%>
+      <%else%>
+        <%= f.text_field :store_id,class:"form-control",id:"exampleFormControlInput2",placeholder:"投稿するサービス名を入力してください",size:20,value:"#{@log.store.name}"%>
+      <%end%>
       <ul id = "result">
       </ul>
     </div>
@@ -32,13 +38,17 @@
     </div>
     <div class="form-group  col-7 mr-3">
       <label for="exampleFormControlTextarea1">GoodPoint ex 改善案に着目したのはすごく面白いなと思いました！！！</label>
-      <button type="button" class="btn btn-warning text-white">positive score:</button>
+        <button type="button" class="btn btn-warning text-white">
+          <%= 'positive score:'"#{@log.good_score}"%>
+        </button>
       <%= f.text_area :good,class:"form-control  form-control-posinega ", id:"exampleFormControlTextarea1",rows:"4",placeholder:"ご利用をされたサービスの良かった点を入力してください"%>
     </div>
       
     <div class="form-group  col-7 mr-3">
       <label for="exampleFormControlTextarea2">ChancePoint ex positiveスコアの基準を開示をしても良いかと思いました！！</label>
-      <button type="button" class="btn btn-warning text-white btn-chance">positive score:</button>
+      <button type="button" class="btn btn-warning text-white btn-chance">
+        <%= 'positive score:'"#{@log.chance_score}"%>
+      </button>
       <%= f.text_area :chance,class:"form-control  form-control-posinega", id:"exampleFormControlTextarea2",rows:"4",placeholder:"ご利用をされたサービスをもっと良くするための提案を入力してください" %>
     </div>
 
@@ -50,11 +60,11 @@
     </div>
 
     <div class="hidden_good_score">
-      <%= f.hidden_field :good_score,id:"exampleFormControlInput_good"%>
+      <%= f.hidden_field :good_score,id:"exampleFormControlInput_good",value:@log.good_score%>
     </div>
 
     <div class="hidden_chance_score">
-      <%= f.hidden_field :chance_score,id:"exampleFormControlInput_chance"%>
+      <%= f.hidden_field :chance_score,id:"exampleFormControlInput_chance",value:@log.chance_score%>
     </div>
 
       <button type="submit" class="btn btn-warning text-white ml-3 mr-3">Submit</button>

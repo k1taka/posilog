@@ -18,7 +18,7 @@ $(function(){
     $("#exampleFormControlInput_chance").val(`${positive_score}`);
   }
 
-  $('#exampleFormControlTextarea1').on('change', function(){
+  $(document).on('change', '#exampleFormControlTextarea1', function(){
     var chance_comment = $(this).prop('value');
     var ps = $(this).prev();
     API_KEY = gon.API_KEY;
@@ -52,7 +52,7 @@ $(function(){
     })
   });
 
-  $('#exampleFormControlTextarea2').on('change', function(){
+  $(document).on('change', '#exampleFormControlTextarea2', function(){
     var chance_comment = $(this).prop('value');
     var ps = $(this).prev();
     API_KEY = gon.API_KEY;
