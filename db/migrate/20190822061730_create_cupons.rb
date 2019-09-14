@@ -1,6 +1,6 @@
-class CreateCupons < ActiveRecord::Migration[5.2]
+class CreateCoupons < ActiveRecord::Migration[5.2]
   def change
-    create_table :cupons do |t|
+    create_table :coupons do |t|
       t.references :store
       t.text :reason
       t.string :product

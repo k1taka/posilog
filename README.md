@@ -91,7 +91,7 @@ DB:Mysql 5.6
 
 #### asociation
 -  has_many :logs
--  has_many :cupons
+-  has_many :coupons
 -  has_many :store_comments
 
 ### Comments テーブル
@@ -123,7 +123,7 @@ DB:Mysql 5.6
 - belongs_to :log
 
 
-### Cupons テーブル
+### Coupons テーブル
 |Column          |Type   |Null|Options          |
 |----------------|-------|----|-----------------|
 |id              |integer|not |                 |

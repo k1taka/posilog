@@ -1,0 +1,23 @@
+<div class="card visible-lg	">
+  <% if coupon.image? %>
+    <%= image_tag coupon.image.url,height:130,width:300,class:'card-img-top',alt:"Card image cap"%>        
+  <% else %>
+    <%= image_tag 'user_image.png',height:130,width:300,class:'card-img-top',alt:"Card image cap"%>        
+  <% end %>
+  <div class="card-body">
+    <% if current_page?(root_path)%>
+      <h5 class="card-title"><%= coupon.store.name%></h5>
+    <%end%>
+    <h5 class="card-title"><%= coupon.reason%></h5>
+    <span class="card-text"><%= coupon.product %> </span>
+    <span class="card-text" style="font-size :large"><%= coupon.discount %></span>
+    <p class="card-text" style = "font-size : small"><%= coupon.writing %> </p>
+    <p class="card-text" style = "font-size : small">有効期限<%= (coupon.created_at+coupon.limit.minutes).strftime("%Y-%m-%d %H:%M:%S") %> </p>
+    <% if store_signed_in? && current_store.id == coupon.store.id %>
+      <%=link_to "編集",edit_store_coupon_path(current_store,coupon.id),class: "btn btn-warning  text-white" %>
+    <% end %>
+    <% unless current_page?(store_path(coupon.store.id))%>
+      <%=link_to "サービス詳細",store_path(coupon.store.id),class: "btn btn-warning  text-white" %>
+    <% end %>
+  </div>
+</div>
