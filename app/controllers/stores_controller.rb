@@ -14,8 +14,8 @@ class StoresController < ApplicationController
   end
 
   def show
-    @logs = Log.where(store_id: params[:id]).page(params[:page]).per(5)
     @store = Store.find(params[:id])
+    @logs = @store.logs.page(params[:page]).per(5)
     @cupons = Cupon.where(store_id: params[:id]).where(status:"open").limit(4).order("created_at DESC")
   end
 
