@@ -4,7 +4,7 @@ class Store < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :logs
-  has_many :cupons
+  has_many :coupons
   has_many :store_comments
 
   validates :name,presence: true

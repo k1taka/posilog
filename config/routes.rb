@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     member do
       post "pay"
     end
-    resources :cupons, only: [:new,:create,:edit,:update]
+    resources :coupons, only: [:new,:create,:edit,:update]
     collection do
       get "search"
     end

@@ -63,8 +63,8 @@ crumb :store do|store|
   parent :root
 end
 
-crumb :new_store_cupon do|new_store_cupon|
-  link "クーポン発行", new_store_cupon_path
+crumb :new_store_coupon do|new_store_coupon|
+  link "クーポン発行", new_store_coupon_path
   parent :root
 end
 

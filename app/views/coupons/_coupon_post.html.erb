@@ -1,14 +1,14 @@
 <div ml-3>
-  <% if cupon.errors.any? %>
+  <% if coupon.errors.any? %>
   <div class="alert alert-warning">
     <ul>
-      <% cupon.errors.full_messages.each do |message| %>
+      <% coupon.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
   </div>
 <% end %>
-  <%= form_for [store, cupon] do |f| %>
+  <%= form_for [store, coupon] do |f| %>
   <form>
     <div class="form-group col-7 mr-3 mt-3">
       <label for="exampleFormControlInput1">クーポンの背景 ex.創業1周年記念、レディース限定割引</label>
@@ -43,10 +43,10 @@
 
 
     <%# 初回投稿時以外はステータスの変更も可能にする %>
-    <% unless current_page?(new_store_cupon_path(params[:store_id]))%>
+    <% unless current_page?(new_store_coupon_path(params[:store_id]))%>
       <div class="field ml-3">
         <%= f.label :status %>
-        <%= f.select :status, Cupon.statuses.keys.map {|k| [k, k]} %>
+        <%= f.select :status, Coupon.statuses.keys.map {|k| [k, k]} %>
         ※一度クローズにした場合は元に戻せません。
       </div>
     <% end%>

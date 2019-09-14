@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_30_145156) do
+ActiveRecord::Schema.define(version: 2019_09_14_073449) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "store_id", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_08_30_145156) do
     t.integer "user_id"
   end
 
-  create_table "cupons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "coupons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "store_id"
     t.text "reason"
     t.string "product"
@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 2019_08_30_145156) do
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
     t.string "image"
-    t.index ["store_id"], name: "index_cupons_on_store_id"
+    t.index ["store_id"], name: "index_coupons_on_store_id"
   end
 
   create_table "log_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image"
+    t.string "image", null: false
     t.integer "log_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

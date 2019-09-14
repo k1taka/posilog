@@ -9,9 +9,9 @@
     <% end %>
     <h4 class="mt-2">期間限定クーポン一覧</h4>
     <div class="card-group mt-2 ">
-      <% @cupons.each do |cupon| %>
+      <% @coupons.each do |coupon| %>
         <div col-3>
-          <%= render partial: 'cupons/cupon', locals: { cupon: cupon } %>
+          <%= render partial: 'coupons/coupon', locals: { coupon: coupon } %>
         </div>
       <% end %>
     </div>

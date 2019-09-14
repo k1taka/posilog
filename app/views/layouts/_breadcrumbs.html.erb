@@ -20,8 +20,8 @@
       <% breadcrumb :stores %>         
     <% end %>
   <% elsif params[:store_id]%>
-    <% if current_page?(new_store_cupon_path(params[:store_id]))%>
-      <% breadcrumb :new_store_cupon %>  
+    <% if current_page?(new_store_coupon_path(params[:store_id]))%>
+      <% breadcrumb :new_store_coupon %>  
     <% end%>
   <% else %>      
     <% if current_page?(store_path(params[:id]))%>

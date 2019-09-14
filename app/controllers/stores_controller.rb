@@ -14,9 +14,9 @@ class StoresController < ApplicationController
   end
 
   def show
-    @logs = Log.where(store_id: params[:id]).page(params[:page]).per(5)
     @store = Store.find(params[:id])
-    @cupons = Cupon.where(store_id: params[:id]).where(status:"open").limit(4).order("created_at DESC")
+    @logs = @store.logs.page(params[:page]).per(5)
+    @coupons = Coupon.where(store_id: params[:id]).where(status:"open").limit(4).order("created_at DESC")
   end
 
   def edit
@@ -75,8 +75,8 @@ class StoresController < ApplicationController
 
   def timepass
     time = Time.now
-    cupons = Cupon.all
-    cupons.each do |c|
+    coupons = Coupon.all
+    coupons.each do |c|
       if c.created_at + c.limit.minutes < time && c.status =="open"
         c.status = "closed"
         c.save
