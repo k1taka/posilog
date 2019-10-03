@@ -95,8 +95,6 @@ gem 'ransack'
 
 gem "gretel"
 
-gem 'payjp'
-
 gem 'rails-i18n'
 
 gem 'bullet'
